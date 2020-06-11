@@ -12,6 +12,6 @@ User.destroy_all
 
 @user = User.create!(username: 'claudyedouard', email: 'claudyedouard6@gmail.com', password:'123456')
 
-@ingrediant = Recipe.create(recipe: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
+@ingrediant = Recipe.create!(name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.')
 
-Dish.create(name: 'Mac&Chesse', user: @user, recipes: [@ingrediant])  
+Dish.create!(name: 'Mac&Chesse', image:'https://skinnyms.com/wp-content/uploads/2016/04/Creamy-Mac-Cheese-with-Butternut-Squash.jpg', user: @user, recipes:[@ingrediant])  

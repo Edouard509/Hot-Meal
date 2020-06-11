@@ -1,16 +1,19 @@
 class DishesController < ApplicationController
-  before_action :set_dish, only: [:show, :update, :destroy]
+  before_action :authorize_request, only: [:create, :update, :destroy]
+  before_action :set_dish, only: [:update, :destroy]
 
   # GET /dishes
   def index
     @dishes = Dish.all
 
-    render json: @dishes, include: { user: { only: %i[username id] } }
+    render json: @dishes
   end
 
   # GET /dishes/1
   def show
-    render json: @dish, include: { user: { only: %i[username id] }, recipes: { include: { user: { only: %i[username id] } } } }
+    @dish = Dish.find(params[:id])
+
+    render json: @dish, include: :recipe
   end
 
   # POST /dishes
@@ -41,11 +44,11 @@ class DishesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dish
-      @dish = Dish.find(params[:id])
+      @dish = @current_user.dishes.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def dish_params
-      params.require(:dish).permit(:name, :image, :user_id)
+      params.require(:dish).permit(:name, :image)
     end
 end
