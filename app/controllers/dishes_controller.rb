@@ -41,6 +41,16 @@ class DishesController < ApplicationController
     @dish.destroy
   end
 
+  def dish_to_recipe
+    @dish = Dish.find(params[:dish_id])
+    @recipe = Recipe.find(params[:id])
+
+    @dish.recipes << @recipe
+
+    render json: @dish, include: :recipes
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dish
