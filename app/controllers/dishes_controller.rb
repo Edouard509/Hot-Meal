@@ -13,7 +13,7 @@ class DishesController < ApplicationController
   def show
     @dish = Dish.find(params[:id])
 
-    render json: @dish, include: :recipe
+    render json: @dish, include: :recipes
   end
 
   # POST /dishes
@@ -49,6 +49,6 @@ class DishesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def dish_params
-      params.require(:dish).permit(:name, :image)
+      params.require(:dish).permit(:name, :image,)
     end
 end
