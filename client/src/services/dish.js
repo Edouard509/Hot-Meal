@@ -6,11 +6,12 @@ export const getAllDishes = async () => {
 }
 
 export const getOneDish = async (id) => {
-  const resp = await api.get(`/Dishes/${id}`);
+  const resp = await api.get(`/dishes/${id}`);
   return resp.data;
 }
 
 export const createDish = async (dishData) => {
+  console.log(dishData)
   const resp = await api.post('/dishes', { dish: dishData });
   return resp.data;
 }

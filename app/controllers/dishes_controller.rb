@@ -18,8 +18,9 @@ class DishesController < ApplicationController
 
   # POST /dishes
   def create
+    puts params
     @dish = Dish.new(dish_params)
-
+    @dish.user = @current_user
     if @dish.save
       render json: @dish, status: :created, location: @dish
     else

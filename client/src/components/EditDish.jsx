@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
+import { getOneDish } from '../services/dish'
 
-export default class CreateDish extends Component {
+export default class EditDish extends Component {
   state = {
     name: "",
     image: ""
   }
-
+  async componentDidMount() {
+    let id = this.props.match.params.id
+    let recipe = await getOneDish(id)
+    let { name, image } = recipe
+    this.setState({ name, image })
+    console.log(this.props)
+  }
   handleChange = (e) => {
     const { value, name } = e.target;
     this.setState({
@@ -17,11 +24,11 @@ export default class CreateDish extends Component {
 
   render() {
     const { name, image } = this.state;
-    const { postDish, history } = this.props;
+    const { editDish, history } = this.props;
     return (
       <form onSubmit={(e) => {
         e.preventDefault();
-        postDish(this.state);
+        editDish(this.props.match.params.id, this.state);
         history.push('/dishes');
         this.setState({
           name: "",
@@ -29,13 +36,13 @@ export default class CreateDish extends Component {
         })
       }}>
         <hr />
-        <h3>Create Dish</h3>
+        <h3>Edit Dish</h3>
         <label htmlFor="name">Name:</label>
         <input
           id="id"
           name="name"
           type="text"
-          value1={name}
+          value={name}
           onChange={this.handleChange}
         />
 
