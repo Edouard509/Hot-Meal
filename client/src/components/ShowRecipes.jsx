@@ -9,7 +9,9 @@ export default function ShowRecipes(props) {
       <h3>Recipes</h3>
       {
         recipes.map(recipe => (
-          <p key={this.props.recipe.id}>{recipe.name}</p>
+          <React.Fragment key={recipe.id}>
+            <p>{recipes.name}</p>
+          </React.Fragment>
         ))
       }
     </>

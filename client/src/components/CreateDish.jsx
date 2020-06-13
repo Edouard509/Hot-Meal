@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './CreateDish.css'
 
 export default class CreateDish extends Component {
   state = {
@@ -19,7 +20,7 @@ export default class CreateDish extends Component {
     const { name, image } = this.state;
     const { postDish, history } = this.props;
     return (
-      <form onSubmit={(e) => {
+      <form className="create-form" onSubmit={(e) => {
         e.preventDefault();
         postDish(this.state);
         history.push('/dishes');
@@ -32,6 +33,7 @@ export default class CreateDish extends Component {
         <h3>Create Dish</h3>
         <label htmlFor="name">Name:</label>
         <input
+          className="input-title"
           id="id"
           name="name"
           type="text"
@@ -41,13 +43,14 @@ export default class CreateDish extends Component {
 
         <label htmlFor="image">image:</label>
         <input
+          className="input-image-link"
           id="id"
           name="image"
           type="text"
           value={image}
           onChange={this.handleChange}
         />
-        <button>Submit</button>
+        <button className="submit-button">Submit </button>
       </form>
     )
   }

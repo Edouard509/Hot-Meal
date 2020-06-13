@@ -1,0 +1,10 @@
+.post{
+  display: flex;
+  padding: 100px;
+  padding-top: 80px;
+}
+
+.post-detail-image {
+  width: 500px;
+  padding: 0 40px;
+}

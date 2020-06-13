@@ -1,0 +1,24 @@
+.header{
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+  background-color: rgb(6, 160, 171);
+}
+
+.logo{
+  color: #b52e2e;
+  font-size: 20px;
+  font-family: 'Balsamiq Sans', cursive;
+}
+
+.link-header{
+  display: flex;
+  justify-content: right;
+  /* align-items: right; */
+  font-family: 'Balsamiq Sans', cursive;
+  font-size: 18px;
+  margin: 0px 40px 0 0;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}

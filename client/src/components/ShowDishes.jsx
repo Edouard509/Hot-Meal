@@ -1,4 +1,5 @@
 import React from 'react';
+import './ShowDishes.css'
 import { Link } from 'react-router-dom';
 
 export default function ShowDishes(props) {
@@ -10,9 +11,9 @@ export default function ShowDishes(props) {
       {
         dishes.map(dish => (
           <React.Fragment key={dish.id}>
-            <div className='Image'>
+            <div className='post'>
               <p>{dish.name}</p>
-              <img src={dish.image} />
+              <img className="post-detail-image" src={dish.image} />
             </div>
             {
               currentUser && currentUser.id === dish.user_id && (
