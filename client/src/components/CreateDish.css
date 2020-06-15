@@ -1,71 +1,62 @@
-.create-form {
-  padding-top: 50px;
+.form-container {
+  align-self: center;
+  padding: 1em;
+  width: 50%;
+  height: 80%;
+  margin: 4em auto;
+  border: 2px solid #b0bec5;
+  border-radius: 6px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 2s ease;
+}
+
+.form-container h3 {
+  text-align: center;
+}
+
+.form-container form {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  justify-content: center;
+  margin: auto;
+  width: 80%;
+}
+
+.form-container form input {
   width: 100%;
-  justify-content: space-evenly;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
+  padding: 0.6em 1em;
+  margin: 0.5em auto;
+  font-size: 1rem;
+  border-radius: 3px;
+  border: 2px solid #e0e0e0;
   outline: none;
+  transition: all 0.4s ease;
 }
 
-input,
-textarea {
-  font-size: 28px;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  padding-left: 10px;
-  margin-top: 10px;
-  box-shadow: 2px 2px 10px 2px #cecece;
-
-  /* border-top-style: hidden;
-  border-right-style: hidden;
-  border-left-style: hidden;
-  border-bottom-style: hidden; */
+.form-container form input:focus,
+.form-container form input:active {
+  border: 2px solid #82ada9;
 }
 
-textarea {
-  font-size: 24px;
-  font-family: Arial, Helvetica, sans-serif;
+.form-container form input:valid {
+  border: 2px solid #66bb6a;
 }
 
-.input-title {
-  font-size: 28px;
-  font-family: Georgia, "Times New Roman", Times, serif;
-}
-
-.input-author {
-  font-size: 24px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.input-image-link {
-  font-size: 18px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.submit-button {
-  font-size: 22px;
-  font-family: Arial, Helvetica, sans-serif;
-  height: 40px;
-  margin-top: 40px;
-  background-color: black;
-  color: white;
+.form-container form button {
+  width: 50%;
+  margin: 1em auto;
+  background: #56c8d8;
   border: none;
-  box-shadow: 2px 2px 10px 2px #cecece;
-  cursor: pointer;
 }
 
-@media (max-width: 500px) {
-  .create-form {
-    padding-top: 150px;
-  }
+.form-container form button:hover {
+  box-shadow: 3px 8px 16px rgba(0, 0, 0, 0.5);
+}
 
-  input,
-  textarea {
-    font-size: 18px;
-  }
+.form-container form a {
+  margin: auto;
+}
+
+.form-container form label {
+  margin-top: 0.6em;
 }

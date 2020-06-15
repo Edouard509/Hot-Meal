@@ -1,0 +1,26 @@
+.recipes{
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  font-family: 'Courgette', cursive;
+  color: rgb(240, 121, 56);
+}
+
+.recipe{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* align-items: center; */
+  margin: 10px;
+  box-shadow: 0px 0px 3px 1px #CECECE;
+  transition: 250ms all;
+  padding: 40px;
+  margin-bottom: 60px;
+  width: 90vw;
+  text-decoration: none;
+}
+.recipe-name{
+  font-size: 30px;
+  font-family: 'Courgette', cursive;
+  color: rgb(240, 121, 56);
+}

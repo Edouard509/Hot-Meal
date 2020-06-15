@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Login from './Login';
 import Register from './Register';
-import { getAllRecipes } from '../services/recipe';
+import { getAllRecipes, createRecipe } from '../services/recipe';
 import { getAllDishes, createDish, deleteDish, updateDish } from '../services/dish';
 import ShowRecipes from './ShowRecipes';
 import ShowDishes from './ShowDishes';
 import CreateDish from './CreateDish';
 import EditDish from './EditDish'
 import DishItem from './DishItem'
+import CreateRecipe from './CreateRecipe'
 
 export default class Main extends Component {
   state = {
@@ -28,6 +29,14 @@ export default class Main extends Component {
   getRecipes = async () => {
     const recipes = await getAllRecipes();
     this.setState({ recipes });
+  }
+
+  postRecipe = async (recipeData) => {
+    const { dish, ...recipe } = recipeData
+    const newRecipe = await createRecipe(recipe, dish);
+    this.setState(prevState => ({
+      recipes: [...prevState.recipes, newRecipe]
+    }))
   }
 
 
@@ -66,6 +75,14 @@ export default class Main extends Component {
   render() {
     return (
       <main>
+        <Route exact path='/' render={() => (
+          <ShowDishes
+            dishes={!this.props.currentUser ? this.state.dishes :
+              this.state.dishes.filter(dish => {
+                return this.props.currentUser.id === dish.user_id
+              })}
+          />
+        )} />
         <Route path='/user/login' render={(props) => (
           <Login
             {...props}
@@ -79,9 +96,18 @@ export default class Main extends Component {
           />
         )} />
 
-        <Route path='/recipes' render={() => (
+        <Route exact path='/recipes' render={() => (
           <ShowRecipes
             recipes={this.state.recipes}
+          />
+        )} />
+
+        <Route path='/dish/:dish_id/recipes' render={(props) => (
+          <ShowRecipes
+            recipes={this.state.recipes.filter(recipe => {
+              console.log(props.match.params.dish_id)
+              return parseInt(props.match.params.dish_id) === recipe.dish_id
+            })}
           />
         )} />
         <Route path='/dishes' render={() => (
@@ -95,6 +121,14 @@ export default class Main extends Component {
           <CreateDish
             {...props}
             postDish={this.postDish}
+          />
+        )} />
+
+        <Route path='/new/recipe' render={(props) => (
+          <CreateRecipe
+            {...props}
+            postRecipe={this.postRecipe}
+            dishes={this.state.dishes}
           />
         )} />
         <Route path='/dish/:id/edit' render={(props) => (

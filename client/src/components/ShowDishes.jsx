@@ -6,28 +6,35 @@ export default function ShowDishes(props) {
   const { dishes, currentUser, destroyDish } = props;
   return (
     <>
-      <hr />
-      <h3>Dishes</h3>
+      {/* <hr /> */}
+      <div className="dishes">
+        <h3>Dishes</h3>
+      </div>
       {
         dishes.map(dish => (
           <React.Fragment key={dish.id}>
-            <div className='post'>
-              <p>{dish.name}</p>
-              <img className="post-detail-image" src={dish.image} />
-            </div>
+
+            <Link className="post" to={`/dish/${dish.id}/recipes`}>
+              <img className="post-image" src={dish.image} alt={dish.name} />
+              <div className="post-name"><p>{dish.name}</p></div>
+            </Link>
             {
               currentUser && currentUser.id === dish.user_id && (
-                <>
-                  <Link to={`/dish/${dish.id}/edit`}> <button>edit</button> </Link>
-                  <button onClick={() => destroyDish(dish.id)}>delete</button>
-                </>
+                <div className="button-container">
+                  <Link to={`/dish/${dish.id}/edit`}> <button className="edit-button">edit</button> </Link>
+                  <button className="delete-button" onClick={() => destroyDish(dish.id)}>delete</button>
+                </div>
               )
             }
+
+
           </React.Fragment>
         ))
       }
-      <br />
-      <Link to='/new/dish'><button>Create</button></Link>
+      {/* <br /> */}
+      <div className='create'>
+        <Link className="create-link" to='/new/dish'><button className="create-button">Create</button></Link>
+      </div>
     </>
   )
 }

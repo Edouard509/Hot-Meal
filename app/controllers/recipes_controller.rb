@@ -13,16 +13,17 @@ class RecipesController < ApplicationController
   #   render json: @recipe
   # end
 
-  # # POST /recipes
-  # def create
-  #   @recipe = Recipe.new(recipe_params)
-
-  #   if @recipe.save
-  #     render json: @recipe, status: :created, location: @recipe
-  #   else
-  #     render json: @recipe.errors, status: :unprocessable_entity
-  #   end
-  # end
+  # POST /recipes
+  def create
+    @dish = Dish.find(params[:dish_id])
+    @recipe = Recipe.new(recipe_params)
+    @recipe.dish = @dish 
+    if @recipe.save
+      render json: @recipe, status: :created, location: @recipe
+    else
+      render json: @recipe.errors, status: :unprocessable_entity
+    end
+  end
 
   # # PATCH/PUT /recipes/1
   # def update
@@ -38,14 +39,14 @@ class RecipesController < ApplicationController
   #   @recipe.destroy
   # end
 
-#   private
-#     # Use callbacks to share common setup or constraints between actions.
-#     def set_recipe
-#       @recipe = Recipe.find(params[:id])
-#     end
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_recipe
+      @recipe = Recipe.find(params[:id])
+    end
 
-#     # Only allow a trusted parameter "white list" through.
-#     def recipe_params
-#       params.require(:recipe).permit(:name, :dish_id)
-#     end
-# end
+    # Only allow a trusted parameter "white list" through.
+    def recipe_params
+      params.require(:recipe).permit(:name, :dish_id)
+    end
+end

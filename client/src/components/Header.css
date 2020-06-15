@@ -1,24 +1,122 @@
-.header{
-  display: flex;
-  justify-content: center;
-  height: 100px;
-  width: 100%;
-  background-color: rgb(6, 160, 171);
+*{
+  box-sizing: border-box;
+}
+body{
+  padding: 0px;
+  margin: 0px;
+  /* background: rgb(156, 213, 249); */
+  height: 100%;
 }
 
-.logo{
-  color: #b52e2e;
+header *{
+  color: black;
+}
+
+header{
+  background: rgb(240, 121, 56);
+  height: 75px;
+}
+
+header .header-bar{
+  float: left;
+  height: inherit;
+  margin-left: 16px;
+}
+
+header .logo-text{
+  margin: 10px;
+  font-family: 'Courgette', cursive;
+  color: antiquewhite;
+}
+
+header .text-deco{
+  text-decoration: none;
+}
+
+header ul{
+  float: right ;
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  margin-right: 16px;
+}
+
+header ul li{
+  float: left;
+}
+
+header ul li a{
+  display: block;
+  padding: 21px;
   font-size: 20px;
-  font-family: 'Balsamiq Sans', cursive;
+  text-decoration: none;
+  color: antiquewhite;
+  font-family: 'Courgette', cursive;
 }
 
-.link-header{
-  display: flex;
-  justify-content: right;
-  /* align-items: right; */
-  font-family: 'Balsamiq Sans', cursive;
-  font-size: 18px;
-  margin: 0px 40px 0 0;
-  font-weight: bold;
-  letter-spacing: 0.5px;
+header .link{
+  padding: 21px;
+  font-size: 20px;
+  text-decoration: none;
+  color: antiquewhite;
+  font-family: 'Courgette', cursive;
+}
+
+/* header .signin{
+  display: block;
+  padding: 21px;
+  font-size: 20px;
+  text-decoration: none;
+  color: antiquewhite;
+  font-family: 'Courgette', cursive;
+  float: right ;
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  margin-right: 50px;
+} */
+
+header .items{
+  display: block;
+  padding: 21px;
+  font-size: 20px;
+  text-decoration: none;
+  color: antiquewhite;
+  font-family: 'Courgette', cursive;
+  float: right ;
+  margin-top: 38px;
+  padding: 0px;
+  list-style: none;
+  margin-right: 16px;
+  text-decoration: none;
+}
+
+header .logout{
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  height: 25px;
+  width: fit-content;
+  align-self: center;
+  margin-top: 40px;
+  background-color: black;
+  color: white;
+  border: none;
+  box-shadow: 2px 2px 10px 2px #CECECE;
+  cursor: pointer;
+}
+
+header .username{
+  display: block;
+  padding: 21px;
+  font-size: 20px;
+  text-decoration: none;
+  color: antiquewhite;
+  font-family: 'Courgette', cursive;
+  float: right ;
+  margin-top: 38px;
+  padding: 0px;
+  list-style: none;
+  margin-right: 16px;
+  text-decoration: none;
 }

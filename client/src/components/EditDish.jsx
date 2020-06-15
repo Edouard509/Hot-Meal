@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { getOneDish } from '../services/dish'
+import { getOneDish, dishToRecipe } from '../services/dish'
 
 export default class EditDish extends Component {
   state = {
@@ -26,6 +26,14 @@ export default class EditDish extends Component {
     const { name, image } = this.state;
     const { editDish, history } = this.props;
     return (
+      // <div className="post-edit">
+      //   <div className="image-container">
+      //     <img
+      //       src={dish.image}
+      //       alt={dish.image}
+      //       className="edit-post-image"
+      //     />
+      // </div >
       <form onSubmit={(e) => {
         e.preventDefault();
         editDish(this.props.match.params.id, this.state);
@@ -39,6 +47,7 @@ export default class EditDish extends Component {
         <h3>Edit Dish</h3>
         <label htmlFor="name">Name:</label>
         <input
+          className="edit-name"
           id="id"
           name="name"
           type="text"
@@ -48,6 +57,7 @@ export default class EditDish extends Component {
 
         <label htmlFor="image">image:</label>
         <input
+          className="edit-image"
           id="id"
           name="image"
           type="text"
@@ -56,6 +66,7 @@ export default class EditDish extends Component {
         />
         <button>Submit</button>
       </form>
+      // </div >
     )
   }
 }

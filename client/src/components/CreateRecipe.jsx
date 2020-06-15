@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import './CreateDish.css'
+import './CreateRecipe.css'
 
-export default class CreateDish extends Component {
+export default class CreateRecipe extends Component {
   state = {
     name: "",
-    image: ""
+    dish: ""
   }
 
   handleChange = (e) => {
@@ -15,24 +15,30 @@ export default class CreateDish extends Component {
     })
   }
 
+  componentDidUpdate() {
+    if (!this.state.dish && this.props.dishes.length) {
+      this.setState({
+        dish: this.props.dishes[0].id
+      })
+    }
+  }
 
 
   render() {
-    const { name, image } = this.state;
-    const { postDish, history } = this.props;
+    const { name } = this.state;
+    const { postRecipe, history } = this.props;
     return (
       <div className="form-container">
         <form className="create-form" onSubmit={(e) => {
           e.preventDefault();
-          postDish(this.state);
-          history.push('/dishes');
+          postRecipe(this.state);
+          history.push('/recipes');
           this.setState({
             name: "",
-            image: ""
           })
         }}>
           <hr />
-          <h3>Create Dish</h3>
+          <h3>Create recipe</h3>
           <label htmlFor="name">Name:</label>
           <input
             className="input-title"
@@ -43,18 +49,14 @@ export default class CreateDish extends Component {
             onChange={this.handleChange}
           />
 
-          <label htmlFor="image">image:</label>
-          <input
-            className="input-image-link"
-            id="id"
-            name="image"
-            type="text"
-            value={image}
-            onChange={this.handleChange}
-          />
 
-
-          <button className="submit-button">Submit </button>
+          <label htmlFor="dish">dish:</label>
+          <select onChange={this.handleChange}>
+            {this.props.dishes.map(dish => (
+              <option value={dish.id}> {dish.name} </option>
+            ))}
+          </select>
+          <button>Submit </button>
         </form>
       </div>
     )
