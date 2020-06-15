@@ -8,6 +8,7 @@ import ShowRecipes from './ShowRecipes';
 import ShowDishes from './ShowDishes';
 import CreateDish from './CreateDish';
 import EditDish from './EditDish'
+import EditRecipe from './EditRecipe'
 import DishItem from './DishItem'
 import CreateRecipe from './CreateRecipe'
 
@@ -135,6 +136,13 @@ export default class Main extends Component {
           <EditDish
             {...props}
             editDish={this.editDish}
+          />
+        )} />
+
+        <Route path='/recipe/:id/edit' render={(props) => (
+          <EditRecipe
+            {...props}
+            editRecipe={this.editRecipe}
           />
         )} />
 

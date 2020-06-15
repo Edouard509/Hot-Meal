@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { getOneDish, dishToRecipe } from '../services/dish'
+import './EditDish.css'
+import { getOneDish } from '../services/dish'
 
 export default class EditDish extends Component {
   state = {
@@ -26,47 +27,40 @@ export default class EditDish extends Component {
     const { name, image } = this.state;
     const { editDish, history } = this.props;
     return (
-      // <div className="post-edit">
-      //   <div className="image-container">
-      //     <img
-      //       src={dish.image}
-      //       alt={dish.image}
-      //       className="edit-post-image"
-      //     />
-      // </div >
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        editDish(this.props.match.params.id, this.state);
-        history.push('/dishes');
-        this.setState({
-          name: "",
-          image: ""
-        })
-      }}>
-        <hr />
-        <h3>Edit Dish</h3>
-        <label htmlFor="name">Name:</label>
-        <input
-          className="edit-name"
-          id="id"
-          name="name"
-          type="text"
-          value={name}
-          onChange={this.handleChange}
-        />
+      <div className="form-container">
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          editDish(this.props.match.params.id, this.state);
+          history.push('/dishes');
+          this.setState({
+            name: "",
+            image: ""
+          })
+        }}>
+          <hr />
+          <h3>Edit Dish</h3>
+          <label htmlFor="name">Name:</label>
+          <input
+            className="edit-name"
+            id="id"
+            name="name"
+            type="text"
+            value={name}
+            onChange={this.handleChange}
+          />
 
-        <label htmlFor="image">image:</label>
-        <input
-          className="edit-image"
-          id="id"
-          name="image"
-          type="text"
-          value={image}
-          onChange={this.handleChange}
-        />
-        <button>Submit</button>
-      </form>
-      // </div >
+          <label htmlFor="image">image:</label>
+          <input
+            className="edit-image"
+            id="id"
+            name="image"
+            type="text"
+            value={image}
+            onChange={this.handleChange}
+          />
+          <button>Submit</button>
+        </form>
+      </div >
     )
   }
 }

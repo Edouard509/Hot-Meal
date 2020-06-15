@@ -15,8 +15,15 @@ export default function ShowDishes(props) {
           <React.Fragment key={dish.id}>
 
             <Link className="post" to={`/dish/${dish.id}/recipes`}>
-              <img className="post-image" src={dish.image} alt={dish.name} />
-              <div className="post-name"><p>{dish.name}</p></div>
+
+              <div className='image'>
+                <img className="post-image" src={dish.image} alt={dish.name} />
+              </div>
+
+              <div className="post-name">
+                <p>{dish.name}</p>
+              </div>
+
             </Link>
             {
               currentUser && currentUser.id === dish.user_id && (
@@ -31,9 +38,13 @@ export default function ShowDishes(props) {
           </React.Fragment>
         ))
       }
-      {/* <br /> */}
+      <br />
       <div className='create'>
-        <Link className="create-link" to='/new/dish'><button className="create-button">Create</button></Link>
+        <Link className="create-link" to='/new/dish'>
+          <button className="create-button">
+            Create
+          </button>
+        </Link>
       </div>
     </>
   )

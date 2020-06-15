@@ -24,3 +24,33 @@
   font-family: 'Courgette', cursive;
   color: rgb(240, 121, 56);
 }
+
+.create-button, .edit-button, .delete-button{
+  font-size: 22px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  height: 40px;
+  /* width: fit-content; */
+  align-self: center;
+  /* margin-top: 40px; */
+  margin: 20px;
+  padding-right: 100px;
+  padding-left: 100px;
+  background-color: black;
+  color: white;
+  border: none;
+  box-shadow: 2px 2px 10px 2px #CECECE;
+  cursor: pointer;
+}
+
+.button{
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+}

@@ -2,7 +2,7 @@ import React from 'react'
 import './ShowRecipes.css'
 import { Link } from 'react-router-dom';
 export default function ShowRecipes(props) {
-  const { recipes } = props;
+  const { recipes, currentUser, destroyRecipe } = props;
   console.log(props)
   return (
     <>
@@ -16,11 +16,35 @@ export default function ShowRecipes(props) {
             <ul className='recipe'>
               <li className="recipe-name">{recipe.name}</li>
             </ul>
+
+            {
+              currentUser && currentUser.id === recipe.user_id && (
+                <div className="button-container">
+
+                  <Link to={`/recipe/${recipe.id}/edit`}>
+                    <button className="edit-button">
+                      edit
+                    </button>
+                  </Link>
+
+                  <button className="delete-button" onClick={() => destroyRecipe(recipe.id)}>
+                    delete
+                  </button>
+
+                </div>
+              )
+            }
           </React.Fragment>
         ))
       }
       <br />
-      <Link className="create-link" to='/new/recipe'><button className="create-button">Create</button></Link>
+      <div className='button'>
+        <Link className="create-link" to='/new/recipe'>
+          <button className="create-button">
+            Create
+          </button>
+        </Link>
+      </div>
     </>
   )
 }
