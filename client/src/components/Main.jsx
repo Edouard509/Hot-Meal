@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Login from './Login';
 import Register from './Register';
-import { getAllRecipes, createRecipe } from '../services/recipe';
+import { getAllRecipes, createRecipe, updateRecipe, deleteRecipe } from '../services/recipe';
 import { getAllDishes, createDish, deleteDish, updateDish } from '../services/dish';
 import ShowRecipes from './ShowRecipes';
 import ShowDishes from './ShowDishes';
@@ -37,6 +37,24 @@ export default class Main extends Component {
     const newRecipe = await createRecipe(recipe, dish);
     this.setState(prevState => ({
       recipes: [...prevState.recipes, newRecipe]
+    }))
+  }
+
+  editRecipe = async (id, recipeData) => {
+    const newRecipe = await updateRecipe(id, recipeData);
+    this.setState(prevState => ({
+      recipes: prevState.recipes.map(recipe => {
+        console.log(recipe.id, id)
+        return recipe.id == id ? newRecipe : recipe
+      })
+    }))
+    console.log(newRecipe)
+  }
+
+  destroyRecipe = async (id) => {
+    await deleteRecipe(id);
+    this.setState(prevState => ({
+      recipes: prevState.recipes.filter(recipe => recipe.id !== id)
     }))
   }
 
@@ -100,6 +118,8 @@ export default class Main extends Component {
         <Route exact path='/recipes' render={() => (
           <ShowRecipes
             recipes={this.state.recipes}
+            currentUser={this.props.currentUser}
+            destroyRecipe={this.destroyRecipe}
           />
         )} />
 
@@ -109,6 +129,8 @@ export default class Main extends Component {
               console.log(props.match.params.dish_id)
               return parseInt(props.match.params.dish_id) === recipe.dish_id
             })}
+            currentUser={this.props.currentUser}
+            destroyRecipe={this.destroyRecipe}
           />
         )} />
         <Route path='/dishes' render={() => (

@@ -28,8 +28,14 @@ export default function ShowDishes(props) {
             {
               currentUser && currentUser.id === dish.user_id && (
                 <div className="button-container">
-                  <Link to={`/dish/${dish.id}/edit`}> <button className="edit-button">edit</button> </Link>
-                  <button className="delete-button" onClick={() => destroyDish(dish.id)}>delete</button>
+                  <Link to={`/dish/${dish.id}/edit`}>
+                    <button className="edit-button">
+                      Edit
+                    </button>
+                  </Link>
+                  <button className="delete-button" onClick={() => destroyDish(dish.id)}>
+                    Delete
+                  </button>
                 </div>
               )
             }

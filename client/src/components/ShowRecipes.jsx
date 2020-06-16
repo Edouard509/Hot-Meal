@@ -3,7 +3,6 @@ import './ShowRecipes.css'
 import { Link } from 'react-router-dom';
 export default function ShowRecipes(props) {
   const { recipes, currentUser, destroyRecipe } = props;
-  console.log(props)
   return (
     <>
       {/* <hr /> */}
@@ -23,12 +22,12 @@ export default function ShowRecipes(props) {
 
                   <Link to={`/recipe/${recipe.id}/edit`}>
                     <button className="edit-button">
-                      edit
+                      Edit
                     </button>
                   </Link>
 
                   <button className="delete-button" onClick={() => destroyRecipe(recipe.id)}>
-                    delete
+                    Delete
                   </button>
 
                 </div>

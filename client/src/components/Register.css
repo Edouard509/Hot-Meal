@@ -42,8 +42,8 @@
   border: 2px solid #66bb6a;
 }
 
-.form-container form button {
-  width: 50%;
+.form-container form button, .form-container form a button {
+  width: fit-content;
   margin: 1em auto;
   background: #56c8d8;
   border: none;

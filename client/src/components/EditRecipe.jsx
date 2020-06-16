@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import './EditRecipe.css'
+import './EditRecipe.css'
 import { getOneRecipe } from '../services/recipe'
 
 export default class EditRecipe extends Component {

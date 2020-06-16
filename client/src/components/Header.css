@@ -62,20 +62,6 @@ header .link{
   font-family: 'Courgette', cursive;
 }
 
-/* header .signin{
-  display: block;
-  padding: 21px;
-  font-size: 20px;
-  text-decoration: none;
-  color: antiquewhite;
-  font-family: 'Courgette', cursive;
-  float: right ;
-  margin: 0px;
-  padding: 0px;
-  list-style: none;
-  margin-right: 50px;
-} */
-
 header .items{
   display: block;
   padding: 21px;
@@ -84,7 +70,7 @@ header .items{
   color: antiquewhite;
   font-family: 'Courgette', cursive;
   float: right ;
-  margin-top: 38px;
+  margin-top: 20px;
   padding: 0px;
   list-style: none;
   margin-right: 16px;
@@ -98,7 +84,7 @@ header .logout{
   height: 25px;
   width: fit-content;
   align-self: center;
-  margin-top: 40px;
+  margin-top: 20px;
   background-color: black;
   color: white;
   border: none;
@@ -114,9 +100,25 @@ header .username{
   color: antiquewhite;
   font-family: 'Courgette', cursive;
   float: right ;
-  margin-top: 38px;
+  margin-top: 20px;
   padding: 0px;
   list-style: none;
   margin-right: 16px;
   text-decoration: none;
+}
+
+@media (max-width: 500px) {
+  header ul li{
+    float: left;
+  }
+  
+  header ul li a{
+    display: block;
+    padding: 21px;
+    font-size: 20px;
+    text-decoration: none;
+    color: rgb(240, 121, 56);
+    font-family: 'Courgette', cursive;
+  }
+  
 }

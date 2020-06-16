@@ -63,6 +63,7 @@ export default class Register extends Component {
             />
           </label>
           <br />
+          <Link className="link" to='/user/login'><button>Login</button></Link>
           <button>Submit</button>
         </form>
       </div >
