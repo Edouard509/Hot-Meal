@@ -5,7 +5,6 @@ export default function ShowRecipes(props) {
   const { recipes, currentUser, destroyRecipe } = props;
   return (
     <>
-      {/* <hr /> */}
       <div className="recipes">
         <h3>Recipes</h3>
       </div>

@@ -6,7 +6,7 @@ export default function ShowDishes(props) {
   const { dishes, currentUser, destroyDish } = props;
   return (
     <>
-      {/* <hr /> */}
+
       <div className="dishes">
         <h3>Dishes</h3>
       </div>

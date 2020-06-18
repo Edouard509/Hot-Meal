@@ -54,3 +54,15 @@
   justify-content: center;
   justify-content: space-evenly;
 }
+
+@media (max-width: 768px) {
+  .recipes{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .recipe{
+    width: 90vw;
+    text-decoration: none;
+  }
+}

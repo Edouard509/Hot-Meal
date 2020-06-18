@@ -1,4 +1,5 @@
 # Hot-Meal
+Deployment: ![Dummy Link](http://clumsy-arithmetic.surge.sh/)
 
 - [Overview](#overview)
 - [MVP](#mvp)
@@ -106,16 +107,15 @@ src
       |__ mockups
 |__ components/
       |__ Header.jsx
-      |__ Nav.jsx
+      |__ CreateDish.jsx
       |__ Main.jsx
-      |__ Header.jsx
-  |__ LogIn.jsx
-  |__ Register.jsx
-  |__ PostCreate.jsx
-  |__ PostEdit.jsx
-  |__ PostDetail.jsx
-  |__ Posts.jsx
-  |__ Post.jsx  
+      |__ CreateRecipe.jsx
+      |__ LogIn.jsx
+      |__ Register.jsx
+      |__ EditDish.jsx
+      |__ EditRecipe.jsx
+      |__ ShowDishes.jsx
+      |__ ShowRecipes.jsx  
 |__ services/
 
 ```
@@ -127,33 +127,32 @@ src
 | :----------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
 |    App    | class |   y   |   y   | _The header will contain the navigation and logo._               |
 |    Header    | functional |   n   |   n   | _The header will contain the navigation and logo._               |
-|  Navigation  | functional |   n   |   y   | _The navigation will provide a link to each of the pages._       |
+|  CreateDish  | functional |   n   |   y   | _This page will let you be able to create a dish ._       |
 |   Main    |   class    |   y   |   n   | _The main will render the posts using cards in flexbox._      |
 | LogIn | functional |   n   |   y   | _LogIn as an existing user._ |
 |    Register    | functional |   n   |   y   | _Create a new user._ |
-|    Post    | functional |   n   |   n   | _Shows a post's details_               |
-|  Posts  | functional |   n   |   n   | _Shows a list of all posts._       |
-|   PostCreate    |   function    |   n   |   y   | _Create a new post._      |
-| PostDetail | functional |   n   |   y   | _Lets you see the post detail._                 |
-|    PostEdit    | functional |   n   |   y   | _Lets you edit a given post._ |
+|  EditDish  | functional |   n   |   n   | _Able to edit a dish_       |
+|   EditRecipe    |   function    |   n   |   y   | _Able to edit a recipe._      |
+| ShowDishes | functional |   n   |   y   | _Shows a list of all Dishes._                 |
+|    ShowRecipes    | functional |   n   |   y   | _Shows a list of all recipes._ |
 
 #### Component Estimates
 
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Component creation    |    L     |     3 hrs      |     hrs     |    TBD    |
-| Database |    H     |     2 hrs      |     hrs     |     TBD     |
-| Controllers (CRUD)    |    L     |     3 hrs      |      hrs     |    TBD    |
-| Routing (backend) |    H     |     3 hrs      |      hrs     |     TBD     |
-| Authentication    |    L     |     2 hrs      |      hrs     |    TBD    |
-| Connect rails/react |    H     |     1 hrs      |      hrs     |     TBD     |
-| State and methods    |    L     |     2 hrs      |      hrs     |    TBD    |
-| React router |    H     |     3 hrs      |      hrs     |     TBD     |
-| CSS |    H     |     5 hrs      |     hrs     |     TBD     |
-| Seed data    |    L     |     4 hrs      |      hrs     |    TBD    |
-| React router |    H     |     3 hrs      |      hrs     |     TBD     |
-| TOTAL               |          |     34 hrs      |      hrs     |     TBD     |
+| Component creation    |    L     |     3 hrs      |    4 hrs     |   4 hrs    |
+| Database |    H     |     2 hrs      |    8 hrs     |    7 hrs     |
+| Controllers (CRUD)    |    L     |     3 hrs      |     3 hrs     |   4 hrs    |
+| Routing (backend) |    H     |     3 hrs      |     4 hrs     |    4 hrs     |
+| Authentication    |    L     |     2 hrs      |     2 hrs     |   2 hrs    |
+| Connect rails/react |    H     |     1 hrs      |     1 hrs     |    2 hrs     |
+| State and methods    |    L     |     2 hrs      |     3 hrs     |   3 hrs    |
+| React router |    H     |     3 hrs      |     2 hrs     |    2 hrs     |
+| CSS |    H     |     5 hrs      |    8 hrs     |    8 hrs     |
+| Seed data    |    L     |     4 hrs      |     4 hrs     |   4 hrs    |
+| React router |    H     |     3 hrs      |     5 hrs     |    5 hrs     |
+| TOTAL               |          |     34 hrs      |     44 hrs     |    45 hrs     |
 
 
 
@@ -179,8 +178,22 @@ src
 
 ## Code Showcase
 
-> Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
+             {
+              currentUser && currentUser.id === dish.user_id && (
+                <div className="button-container">
+                  <Link to={`/dish/${dish.id}/edit`}>
+                    <button className="edit-button">
+                      Edit
+                    </button>
+                  </Link>
+                  <button className="delete-button" onClick={() => destroyDish(dish.id)}>
+                    Delete
+                  </button>
+                </div>
+              )
+            }
 
-## Code Issues & Resolutions
+            The reason why I love this code is because, the only way the Edit and Delete button will show is when you are log In to the website and will automatically appear on the page.
 
-> Use this section to list of all major issues encountered and their resolution, if you'd like.
+
+

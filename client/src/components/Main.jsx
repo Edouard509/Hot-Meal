@@ -167,15 +167,6 @@ export default class Main extends Component {
             editRecipe={this.editRecipe}
           />
         )} />
-
-        <Route path='/dishes/:id' render={(props) => {
-          const dishId = props.match.params.id;
-          return <DishItem
-            dishId={dishId}
-            recipes={this.state.recipes}
-            currentUser={this.props.currentUser}
-          />
-        }} />
       </main>
     )
   }
