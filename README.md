@@ -1,5 +1,5 @@
 # Hot-Meal
-Deployment: ![Link](http://clumsy-arithmetic.surge.sh/)
+Deployment: [Link](http://clumsy-arithmetic.surge.sh/)
 
 - [Overview](#overview)
 - [MVP](#mvp)
